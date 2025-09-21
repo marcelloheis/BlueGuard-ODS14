@@ -1,4 +1,4 @@
-# Vida na Água — Monitoramento de Poluição Marinha (ODS 14)
+# BlueGuard — Monitoramento de Poluição Marinha (ODS 14)
 
 Este projeto tem como objetivo apoiar o **ODS 14 — Vida na Água**, desenvolvendo um sistema para monitorar, registrar e visualizar indicadores de poluição marinha (como plásticos, resíduos e nutrientes), permitindo a gestores e pesquisadores identificar padrões e apoiar decisões de conservação.
 
