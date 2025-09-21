@@ -1,1 +1,15 @@
-
+@startuml
+left to right direction
+actor "Usuário" as User
+actor "Pesquisador" as Researcher
+actor "Gestor Público" as Manager
+rectangle "BlueGuard - Monitoramento Marinho" {
+  User -- (Autenticar)
+  Researcher -- (Registrar dados de poluição)
+  Manager -- (Visualizar Dashboard)
+  Manager -- (Exportar Relatório)
+  (Visualizar Dashboard) .> (Filtrar Dados) : include
+  (Registrar dados de poluição) --> (Atualizar Banco)
+  (Sistema de Alertas) <-- (Visualizar Dashboard)
+}
+@enduml
