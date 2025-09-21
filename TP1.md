@@ -33,7 +33,7 @@ Será desenvolvido um **sistema web fullstack**:
 ![Use Case](./docs/diagrams/usecase.png)
 
 ## 7. Planejamento (GitHub Project)
-- **Link:** [https://github.com/users/marcelloheis/projects/1/views/1]
+- **Link:** [[https://github.com/users/marcelloheis/projects/1/views/1]](https://github.com/users/marcelloheis/projects/1/views/1)
 - **Backlog inicial:** cadastro de usuário, autenticação, registro de dados, dashboard, exportação de relatórios, alertas.
 - **TODO (TP2):**
   - Criar esqueleto backend (Node/Express).
