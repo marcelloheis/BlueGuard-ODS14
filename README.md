@@ -21,4 +21,4 @@ Este projeto tem como objetivo apoiar o **ODS 14 — Vida na Água**, desenvolve
 - `TP1.md` → entrega do TP1 (definição e planejamento)
 
 ## GitHub Project
-👉 [[Link para o board do projeto]](https://github.com/users/marcelloheis/projects/1/views/1)(#) (adicionar após criar)
+👉 [[Link para o board do projeto]](https://github.com/users/marcelloheis/projects/1/views/1)
