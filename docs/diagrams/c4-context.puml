@@ -1,1 +1,21 @@
+@startuml c4-context
+!define C4P https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4P/C4_Context.puml
+
+Person(user, "Gestor / Pesquisador", "Usuario que visualiza dashboards e relatórios")
+Person(sensor, "Sensor / Sistema Externo", "Fornece leituras ou upload de dados")
+System_Ext(extApi, "APIs Públicas (NOAA/UNEP)", "Fontes externas de dados ambientais")
+
+System_Boundary(blueguard, "BlueGuard") {
+  System(webapp, "BlueGuard Web App", "React SPA para visualização e interação")
+  System(api, "BlueGuard API", "REST API em Node.js/Express")
+  System_Db(db, "PostgreSQL", "Armazenamento de leituras e usuários")
+}
+
+Rel(user, webapp, "Usa (HTTPS)")
+Rel(webapp, api, "Chama API (HTTPS/REST)")
+Rel(api, db, "Reads/Writes")
+Rel(sensor, api, "Envia leituras / Consome endpoints")
+Rel(api, extApi, "Consulta / Correlaciona dados", "HTTPS")
+@enduml
 
