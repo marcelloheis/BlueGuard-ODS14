@@ -1,1 +1,19 @@
+@startuml c4-component
+!define C4P https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4P/C4_Component.puml
+
+Container(api, "API Server", "Node.js + Express")
+
+Component(authController, "Auth Controller", "Login / Registro / JWT")
+Component(dataController, "Data Controller", "Endpoints CRUD para leituras")
+Component(reportService, "Report Service", "Geração de PDF/CSV")
+Component(alertService, "Alert Service", "Analisa leituras e cria alertas")
+Component(repo, "Repository", "Acesso ao DB (ORM / query builder)")
+
+Rel(api, authController, "usa")
+Rel(api, dataController, "usa")
+Rel(dataController, repo, "Cria/Consulta leituras")
+Rel(alertService, repo, "Consulta leituras históricas")
+Rel(alertService, reportService, "Gera relatórios / Notificações")
+@enduml
 
