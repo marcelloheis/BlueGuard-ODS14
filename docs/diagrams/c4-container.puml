@@ -1,1 +1,20 @@
+@startuml c4-container
+!define C4P https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4P/C4_Container.puml
+
+Person(user, "Gestor / Pesquisador")
+System_Boundary(b, "BlueGuard") {
+  Container(web, "Web App", "React (SPA)", "Interface de usuário para dashboards e relatórios")
+  Container(api, "API Server", "Node.js + Express", "Fornece endpoints REST, autenticação e lógica")
+  Container(db, "PostgreSQL", "PostgreSQL", "Persistência de usuários e leituras")
+  Container(worker, "Background Worker", "Node.js + Bull/Redis", "Processamento de alertas e geração de relatórios em segundo plano")
+  Container(objectStore, "Object Storage", "S3-compatible", "Armazena relatórios e arquivos grandes")
+}
+
+Rel(user, web, "Usa")
+Rel(web, api, "HTTPS/REST")
+Rel(api, db, "Reads/Writes")
+Rel(api, worker, "Envia Jobs (Redis/Bull)")
+Rel(worker, objectStore, "Grava relatórios")
+@enduml
 
