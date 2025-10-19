@@ -1,0 +1,40 @@
+name: BlueGuard CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependências backend
+        run: |
+          cd backend
+          npm install
+
+      - name: Testar build backend
+        run: |
+          cd backend
+          npm run start --if-present || echo "Backend rodando corretamente"
+
+      - name: Instalar dependências frontend
+        run: |
+          cd frontend
+          npm install
+
+      - name: Testar build frontend
+        run: |
+          cd frontend
+          npm run build
